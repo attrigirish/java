@@ -1,0 +1,179 @@
+Functions
+
+Factorial
+
+n!
+
+fac=1;
+for(int i=1;i<=n;i++)
+{
+	fac=fac*i;
+}
+
+
+
+
+
+
+Express
+
+m!+n!/p!
+
+
+mfac=1;
+for(i=1;i<=m;i++)
+{
+	mfac=mfac*i;
+}
+
+nfac=1;
+for(i=1;i<=n;i++)
+{
+	nfac=nfac*i;
+}
+
+pfac=1;
+for(i=1;i<=n;i++)
+{
+	pfac=pfac*i;
+}
+
+
+
+or
+
+
+int Factorial(int x)
+{
+	int fac=1;
+	int i;
+	for (i=1;i<=x;i++)
+	{
+		fac=fac*i;
+	}
+	return fac;
+}
+
+
+res=Factorial(m)+Factorial(n)/Factorial(p);
+
+
+
+
+Syntax:
+
+<return type> <function-name>(<parameter(s)>)
+{
+	<function-body>
+	[return <value>];
+}
+
+ 
+
+
+int Sum(int a,int b)
+{
+	int c;
+	c=a+b;
+	return c;
+} 
+
+
+
+int res=Sum(x,y);
+
+
+
+
+void Print()
+{
+		.....
+
+		return;
+}
+
+
+
+
+Write a function Count that will accept a list/array as a parameters and returns the no. of positive values in it.
+
+int Count(int[] lst)
+{
+	//
+}
+
+#Test Statements
+int lst[]={43,-12,43,87,-43,90,34,-53};
+int poss=Count(lst);
+System.out.println("Positive Number : " + poss);
+
+
+
+ Write a function Extract to accept an array, starting index, number of elements. 
+
+ You are required to return an array of elements from the function starting from start index upto the number of elements specified in the function.
+
+
+
+static int[] Extract(int []lst, int start, int num)
+{
+	int []result=new int[num];
+	for(int i=0;i<num;i++,start++)
+	{
+		result[i]=lst[start];
+	}
+	return result;
+}
+
+
+//Test Statements
+int a[]={11,22,33,44,55,66,77,88,99,110};
+int b[]=Extract(a,3,4);			
+for(int i=0;i<b.length;i++)
+{
+	System.out.println(b[i]);
+}
+
+
+Q. Write a function Max to accept an array as parameter and return max value of the list.
+
+Q. Write a function Top3 to accept an array as parameter and return the top (largest) 3 elements of the list. 
+
+Q. Write a function Primes to accept a start value and end value. Display all prime number between start value and end value.
+
+Q. Write a function Update to accept an array of elements. You are required to change every value of the specified by list as per the following conditions:
+
+		Value 				Update Value
+		Even 				Value*3
+		Odd 				Value/2
+		Zero 				99999
+
+
+Input : lst = [11,22,33,0,44,0]
+Output : lst = [5,66,16,999,132,999]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

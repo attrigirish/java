@@ -1,0 +1,303 @@
+Write a program to calculate sum of first n odd numbers.
+
+sum=0;
+for(i=1;i<n*2;i=i+2)
+{
+	sum=sum+i;
+}
+
+
+Write a program to check if a number is a prime no. or not.
+
+count=0;
+for(i=1;i<=n;i++)
+{
+	if(n%i==0)
+	{
+		count++;
+	}
+}
+
+if(count==2)
+{
+	print("Prime");
+}
+else
+{
+	print("Not Prime")
+}
+
+
+
+sum=0;
+for(i=0;i<=n;i++)
+{
+	sum=sum+i;
+}
+
+
+count=0;
+for(i=0;i<=n;i++)
+{
+	count=count+1;
+}
+
+
+
+
+
+Arrays
+------------------------------------
+
+
+An array is a collection of similar type elements/values. 
+
+Syntax:
+
+
+<type> []<array-name> = new <type>[size];
+or
+<type> <array-name>[] = new <type>[size];
+
+
+int []list = new int[10];		//In C : int list[10];
+String[] contacts=new String[20];
+float []temps=new float[365];
+
+
+Array Initialization:
+
+Compile Time Initialization
+
+Method 1:
+
+int[] list=new int[5];
+
+list[0]=11;
+list[1]=22;
+list[2]=33;
+list[3]=44;
+list[4]=55;
+
+Method 2:
+
+int[] list={11,22,33,44,55};		//Array Intializer
+
+Method 3:
+
+int[] list=new int[3]{54,65,34};	
+
+
+E.g.
+
+int[]list = new int[3];
+list={11,22,33};		//Error
+
+
+Run Time Initialization
+
+int []list = new int[5];
+
+list[0]=input.nextInt();
+list[1]=input.nextInt();
+list[2]=input.nextInt();
+list[3]=input.nextInt();
+list[4]=input.nextInt();
+
+
+or
+
+for(i=0;i<5;i++)
+{
+	list[i]=input.nextInt();
+}
+
+
+
+Program: Write a program to input an array of size 10. Count all number >50. 
+
+
+public static void main(String[] args)
+{
+	public static void main(String[] args)
+	{
+		Scanner input=new Scanner(System.in);
+		int i;
+		int []list=new int[10];
+
+		//Input
+		for(i=0;i<10;i++)
+		{
+			list[i]=input.nextInt();
+		}
+
+		//Count
+		int count=0;
+		for(i=0;i<10;i++)
+		{
+			if(list[i]>50)
+			{
+				count++;
+			}
+		}
+
+		System.out.println(count);
+	}
+}
+
+
+
+
+#Variable Length Array
+
+class Program
+{
+	public static void main(String[] args)
+	{
+		Scanner input=new Scanner(System.in);
+		int n;
+		int i;
+
+		n=input.nextInt();
+		int[] list=new int[n];
+
+		//Input
+		for(i=0;i<n;i++)
+		{
+			System.out.println("Enter the Number : ");
+			list[i]=input.nextInt();
+		}
+
+		//Output
+		System.out.print("Array Elements : ");
+		for(i=0;i<n;i++)
+		{
+			System.out.println(list[i]);
+		}
+	}
+}
+
+
+Program: Write a program to input an array of size N (value of n will be entered by the user) and a number to search. Write appropriate instructions/statement to check whether the search input exists in the array or not.
+
+
+class Program
+{
+	int i;
+	int n;
+	int search;
+	boolean isfound=false;
+
+	Scanner input=new Scanner(System.in);
+
+	//Size of the Array
+	System.out.println("Enter the Size of the Array : ");
+	n=input.nextInt();
+
+	int []list=new int[n];
+
+	//Input
+	for(i=0;i<n;i++)
+	{
+		list[i]=input.nextInt();
+	}
+
+	//Search
+	System.out.println("Enter value to Search : ");
+	search=int.nextInt();
+
+	//Linear Search
+	for(i=0;i<n;i++)
+	{
+		if(list[i]==search)
+		{
+			isfound=true;
+			break;
+		}
+	}
+
+	if(isfound==true)
+	{
+		System.out.println("Found");
+	}
+	else
+	{
+		System.out.println("Not Found");
+	}
+}
+
+
+
+Java Collections
+
+
+ArrayList : ArrayList provides a dynamic array like object to a user. Unlike an array elements can be added to or removed from an arraylist at runtime. ArrayList is a heterogenous data structure. i.e. Different types of data elements can be stored in an arraylist.
+
+Declaration:
+
+ArrayList list = new ArrayList();
+
+
+E.g.
+
+ArrayList contacts=new ArrayList();
+
+contacts.add(123);
+contacts.add("Girish Kumar");
+contacts.add("girish@mail.com");
+contacts.add(9430455445);
+
+
+Iterating ArrayLists
+
+for(i=0;i<contacts.size();i++)
+{
+	System.out.println(contacts.get(i));	//contacts[i]
+}
+
+
+
+Generic ArrayList
+
+In generic arraylist the type of the elements is defined at the time of declaration. In a generic list you can store elements of only one data type.
+
+ArrayList<String> contacts = new ArrayList<String>();
+
+contacts.add("Girish Attri");
+contacts.add("Ravi Kumar");
+contacts.add(234);				//Error
+
+
+
+
+
+
+ArrayList functions
+
+1. add(value) : Adds the value at the end of the list.
+2. remove(value) : Removes the specified value from the list.
+3. remove(index) : Removes the value from the specified index.
+4. indexOf(value) : Returns the index of first occurence of the value. Returns -1 if 					value does not exist.
+5. lastIndexOf(value) : Returns the index of last occurence of the value. Returns -1 					if value does not exist.
+6. contains(value) : Returns true if the value exists in the array, returns false 						otherwise.
+7. clear() : Remove all elements from the list.
+8. get(index) : Returns the value of the specified index.
+9. size() : Returns the total no. of elements.
+10. sort() : Sorts the list.
+11. set(index, value) : Sets/Changes the value of the specified index.
+12. subList(startIndex,endIndex) : Returns the list of elements from startindex to end index.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
