@@ -1,0 +1,26 @@
+this : this is a built-in object that provides reference of the object for which the function has been called. this keyword can be in member functions only. 
+
+class Sample
+{
+	int a;
+	int b;
+
+	public void Input(int a,int b)
+	{
+		this.a=a;
+		this.b=b;
+	}
+
+	public void Output()
+	{
+		S.o.p("A = " + this.a);
+		S.o.p("B = " + this.b);
+	}
+}
+
+main()
+{
+	Sample s  = new Sample();
+	s.Input(5,10);
+	s.Output();
+}

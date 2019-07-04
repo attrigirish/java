@@ -1,0 +1,252 @@
+Java Inheritance/Constructors in Inheritance
+
+----------------
+Code Snippet 1
+----------------
+
+class Parent
+{
+	int a;
+	public Parent()
+	{
+		a=5;
+		System.out.println("Parent Object Created");
+	}
+}
+
+class Child extends Parent
+{
+	int b;
+	public Child()
+	{
+		b=10;
+		System.out.println("Child Object Created");
+	}
+}
+
+
+void main()
+{
+	Child obj = new Child();
+}
+
+Note : In inheritance when an object of a derive class is created, it first invokes the constructor of the parent class and then the derived class.
+
+
+
+---------------
+Code Snippet-2
+---------------
+
+
+class Parent
+{
+	int a;
+}
+
+
+class Child extends Parent
+{
+	int b;
+	public Child()
+	{
+		b=10;
+		System.out.println("Child Object Created");
+	}
+}
+
+Note : If a constructor is not defined in a class, Java compiler will add a default empty constructor in it. 
+	The order of constructor execution in above code snipped will be (Parent->Child).
+
+
+
+--------------
+Code Snippet 3
+--------------
+
+class Parent
+{
+	int a;
+	public Parent(int a)
+	{
+		this.a=a;
+	}
+}
+
+class Child extends Parent
+{
+	int b;
+}
+
+Note: Compiler Time Error. If parent class contains a parameterized constructor then the derive class must define a constructor as well.
+
+
+--------------
+Solution Snippet 3
+--------------
+
+class Parent
+{
+	int a;
+	public Parent(int a)
+	{
+		this.a=a;
+	}
+}
+
+
+class Child extends Parent
+{
+	int b;
+
+	public Child()
+	{
+		super(5);
+	}
+}
+
+
+
+
+
+--------------
+Code Snippet 4
+--------------
+
+class Parent
+{
+	int a;
+	public Parent()
+	{
+	}
+}
+
+
+class Child extends Parent
+{
+	int b;
+}
+
+Note: No Error. A default constructor will be added in the derived class by the Java Compiler. Order of Execution (Parent->Child)
+
+
+--------------
+Code Snippet 4
+--------------
+
+class Parent
+{
+	int a;
+	public Parent(){ S.o.p("Parent Default"); }
+
+	public Parent(int a){ S.o.p("Parent Parameterized"); }
+}
+
+
+class Child extends Parent
+{
+	int b;
+
+	public Child(){ S.o.p("Child Default");	}
+
+	public Child(int b){ super(5); S.o.p("Child Parameterized"); }
+}
+
+
+Child o1 = new Child();			//Parent Default - Child Default
+Child o2 = new Child(5);		//Parent Paramterized - Child Parameterized
+
+
+Note: When a child class object is created it invokes the parent's class default constructor first and then continue with the derived class constructor.
+
+
+
+
+
+---------------
+Code Snippet 6
+---------------
+
+class Bank
+{
+	int acno;
+	String name;
+	double balance;
+
+	public Bank(int acno,String name,double balance)
+	{ 
+		this.acno=acno;
+		this.name=name;
+		this.balance=balance;
+	}
+}
+
+Class BankV1
+{
+	long aadhar;
+
+	public BankV1(int acno,String name,double balance,long aadhar)
+	{
+		super(acno,name,balance);
+		this.aadhar=aadhar;
+	}
+}
+
+
+BankV1 obj = new BankV1(12345,"Girish Attri",50000,55544444444L);
+
+- Complete the missing code in class BankV1.
+
+
+
+
+Accessibility Specifiers in Inheritance
+
+
+class Parent
+{
+	private int a;
+	protected int b;
+	public int c;	
+}
+
+class Child extends Parent
+{
+	public void Fun()
+	{
+		...
+	}
+}
+
+A. Write the name of members of the Child class which can be accessed with an object.    (c)
+
+B. Write the name of members of the Child class which can be accessed inside Fun function.   (b,c)
+
+
+
+Function Overriding
+
+Function overriding, in object-oriented programming, is a language feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its superclasses or parent classes.
+
+
+class Parent
+{
+	public void Fun() {..}
+}
+
+class Child extends Parent
+{
+	public void Fun() {..}
+}
+
+
+
+
+final Keyword
+
+
+
+
+
+
+

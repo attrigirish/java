@@ -1,0 +1,119 @@
+In object-oriented programming, inheritance is the mechanism of basing a class upon another class, retaining similar implementation. Also defined as deriving new classes (sub classes) from existing ones (super class or base class). In object-oriented languages, an object created through inheritance (a "child object") acquires all the properties and behaviors of the parent object (except: constructors, destructor, overloaded operators and friend functions of the base class). Inheritance allows programmers to create classes that are built upon existing classes, to specify a new implementation while maintaining the same behaviors (realizing an interface), to reuse code and to independently extend original software via public classes and interfaces. 
+
+
+
+Types of Inheritance
+
+1. Simple (Parent->Child)
+2. Multilevel (GP->P->C)
+3. Hierarchical (P->C1,C2)
+
+
+Syntax:
+
+class <class-name> extends <base-class>
+{
+	....
+}
+
+
+class Parent
+{
+	public int a;
+	public int b;
+}
+
+class Child extends Parent
+{
+	public int c;
+}
+
+main()
+{
+	Child obj = new Child();
+
+	obj.a=5;
+	obj.b=10;
+	obj.c=15;
+
+	S.o.p("A = " + a);
+	S.o.p("B = " + b);
+	S.o.p("C = " + c);
+}
+
+Program:
+
+Create a class Bank with following members
+
+	acno
+	name
+	branch
+	balance
+
+	InputBank() : To input data of acno, name, branch and balance
+	OutputBank() : To display data of acno, name, branch and balance
+
+Now, Create an another BankV1 and inherit it from class Bank and define the following members in it.
+
+	aadhar
+
+	InputBankV1() : To input aadhar details
+	OutputBankV1() : To display aadhar details
+
+Next, create an object of class BankV1 and call InputBank(), InputBankV1(), OutputBank() and OutputBankV1() functions.
+	
+
+
+
+class Bank
+{
+	private int acno;
+	private String name;
+	private String branch;
+	private float balance;
+
+
+	public void InputBank(int acno,String name,String branch,float balance)
+	{
+		this.acno=acno
+		this.name=name;
+		this.branch=branch;
+		this.balance=balance;
+	}
+
+	public void AccountDetails()
+	{
+		S.o.p("Account No : " + acno);
+		S.o.p("Name : " + name);
+		S.o.p("Balance : " + balance);
+		S.o.p("Branch : " + branch);
+	}
+}
+
+
+class BankV1 extends Bank
+{
+	int aadhar;
+
+	public void InputBankV1(int acno,String name,String branch,float balance,int aadhar)
+	{
+		InputBank(acno,name,branch,balance);
+		this.aadhar=aadhar;
+	}
+
+	public void OutputBankV1()
+	{
+		OutputBank();
+		S.o.p("Aadhar : " + aadhar);
+	}
+
+}
+
+
+
+
+main()
+{
+	BankV1 obj = new BankV1();
+	obj.InputBankV1(12345,"Girish","Rohini",50000,12346653);
+}

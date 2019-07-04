@@ -1,0 +1,84 @@
+class Bank
+{
+	int acno;
+	String name;
+	String branch;
+	double balance;
+
+	public void Input()
+	{	
+	}
+
+	public void Output()
+	{	
+	}
+}
+
+
+Bank o = new Bank();
+o.Output();
+
+
+Constructor
+
+
+A constructor is a special member which is used to intialize an object of a class. 
+
+Key Points:
+
+1. A constructor function cannot be called explicitly.
+2. A constructor gets called implicitly when an object of a class is created.
+3. A constructor does not return any value.
+4. A constructor can be parameterized or non parameterized.
+5. A constructor is defined with the name of the class.
+
+
+class XYZ
+{
+	public XYZ()
+	{
+		System.out.println("A New Object is Created");
+	}
+}
+
+
+What will be output of this program
+
+
+ArrayList<XYZ> lst = new ArrayList<XYZ>();
+
+lst.add(new XYZ());
+lst.add(new XYZ());
+
+
+Create a class Register with following members:
+	- id
+	- name
+	- email 
+	- phone
+
+	- An empty constructor to take input from the user.
+	- A constructor to accpet values of id and name.
+	- A constructor to accept values of id, name and email.
+	- A constructor to accept values of id, name and phone
+	- A constructor to accept values of id, name, email and phone.
+	- A function Output to display the details of id, name, email and phone
+
+
+
+
+http://cppforschool.com/assignment/constructor_2.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+

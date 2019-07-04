@@ -137,9 +137,38 @@ for(int i=0;i<b.length;i++)
 
 Q. Write a function Max to accept an array as parameter and return max value of the list.
 
+
+
 Q. Write a function Top3 to accept an array as parameter and return the top (largest) 3 elements of the list. 
 
 Q. Write a function Primes to accept a start value and end value. Display all prime number between start value and end value.
+
+
+static void Primes(int startvalue, int endvalue)
+{
+	int i,j;
+	boolean isprime;
+
+	for(i=startvalue;i<=endvalue;i++)
+	{
+		isprime=true;
+		for(j=2;j<=i/2;j++)
+		{
+			if(i%j==0)
+			{
+				isprime=false;
+				break;
+			}
+		}
+		if(isprime==true)
+		{
+			System.out.println(i);
+		}
+	}	
+}
+
+#Call
+Primes(5,45);
 
 Q. Write a function Update to accept an array of elements. You are required to change every value of the specified by list as per the following conditions:
 
@@ -149,27 +178,196 @@ Q. Write a function Update to accept an array of elements. You are required to c
 		Zero 				99999
 
 
+static void Update(int []lst)
+{
+	for(int i=0;i<5;i++)
+	{
+		if(lst[i]==0)
+		{
+			lst[i]=99999;
+		}
+		else if(lst[i]%2==0)
+		{
+			lst[i]=lst[i]*3
+		}
+		else
+		{
+			lst[i]=lst[i]/2;
+		}
+	}
+}
+
+
+
+
+
 Input : lst = [11,22,33,0,44,0]
 Output : lst = [5,66,16,999,132,999]
 
 
 
+Types of Functions
+
+1. No Return / No Parameter
+	
+	E.g.
+
+	clrscr()
+
+	Use Cases:
+
+		- Printing some pre-defined output on the screen.
+		- 
+
+
+2. No Return / Take Paremter(s)  
+
+	E.g.
+
+	print(value)
+	println(value)
+	lst.add(value)
+	lst.remove(value)
+	Collections.sort(lst)
+
+	Use Cases:
+
+		- To perform some operations on array/list arguments.
+		- To save data in database.
+
+
+3. Return / No Paremeter 
+
+	E.g.
+
+	nextInt()
+
+	Use Cases:
+
+		- To take input/data from some data source
+
+
+4. Return / Take Parameters
+
+	E.g.
+
+	lst.indexOf(value)
+
+	Use Cases:
+
+		- This type of functions are most commonly used in a program. 
 
 
 
 
 
 
+Function Overloading : Function overloading is when two or more functions are defined with the same name. Function overloading is used in a program to define different implements of the similar function.
+
+E.g. You may write two or more definitions of the Sum function to use it with different set of parameters. i.e. You can create one definition to calculate sum of two integer values, whereas you can create the another definition to calculate the sum of two double values.
+
+Rules:
+
+1. Either the Number of arguments should be different or
+2. The order of the arguments should be different.
+
+
+E.g.
+
+A. int Sum(int,int) {}
+B. float Sum(float,float) {}
+C. void Sum(int,int) {}
+D. int Sum(int,int,int) {}
+E. float Sum(int,int,float) {}
+
+
+Find out all the overloaded functions
+
+A, B, D, E
+
+
+Write overloaded functions for the following given conditions.
+
+	1. if only username and age entered by the user.
+	2. if only username, age and email entered by the user.
+	3. If only username, age, email and phone entered by the user.
+	4. If only username, age, and phone entered by the user.
+	5. If only username, email entered by the user.
+	6. If only username and phone entered by the user.
+
+	username String
+	age int
+	email String
+	phone long
+
+
+
+void Register(String username, int age){}
+void Register(String username, int age, String email){}
+void Register(String username, int age, String email, long phone) {}
+void Register(String username, String email, long phone, int age) {}
+void Register(String username, int age, long phone) {}
+void Register(String username, String email) {}
+void Register(String username, long phone) {}
+
+
+
+Command Line Argument(s)
+
+class Sum
+{
+	public static void main(String[] args)
+	{
+		if(args.length!=2)
+		{
+			System.out.println("Invalid Usage of the Program");
+			System.out.println("Correct Usage is : Sum <num1> <num2>");
+		}
+		else
+		{
+			int a=Integer.parseInt(args[0]);
+			int b=Integer.parseInt(args[1]);
+			int c=a+b;
+			System.out.println("Sum = " + c);
+		}
+	}
+}
+
+
+Write a program to accept two parameters (int) from the command line and calculate sum of them. (Hint : Integer.parseInt(args[0]))
+
+
+
+"3"+"5"			=	35
+
+
+Type Casting 
+
+Integer.parseInt(string) 
+Float.parseFloat(string)
+Double.parseDouble(string)
+
+Converting int,float or double arugment to a string
+
+String.valueOf(value)
+
+E.g.
 
 
 
 
+Cascading Statement/Chained Statements(Function Chaining)
+
+function().function().function()
 
 
+int a=5433;
+int length=String.valueOf(a).length();
 
+or
 
-
-
+String value=String.valueOf(a);
+int length=value.length();
 
 
 

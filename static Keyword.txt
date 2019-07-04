@@ -1,0 +1,68 @@
+static Keyword
+
+Java's static keyword can be used with either a variable or a function. 
+
+static Variable
+
+A static variable of also called class variable is used to share a common value amongst all the object of a class.
+
+
+static Function
+
+A static function can be used to access the static member of a class. Static function cannot access non-static members of a class.
+
+
+
+Keypoints:
+
+1. A static member (variable or function) can be used even without creating an object of a class.
+
+2. A static member can only be accessed with it's class name.
+
+
+
+class Bank
+{
+	private int acno;
+	private String name;
+	private static String branch;
+	private float balance;
+
+	public static void SetBranch(String b)
+	{
+		branch=b;
+	}
+
+	public void CreateAccount(int a,String n,float b)
+	{
+		acno=a;
+		name=n;
+		balance=b;
+	}
+
+	public void AccountDetails()
+	{
+		S.o.p("Account No : " + acno);
+		S.o.p("Name : " + name);
+		S.o.p("Balance : " + balance);
+		S.o.p("Branch : " + branch);
+	}
+}
+
+
+... main()
+{
+	Bank.SetBranch("Pitampura");
+
+	Bank c1 = new Bank();
+	Bank c2 = new Bank();
+
+	c1.CreateAccount(12345,"Girish Attri",50000);
+	c2.CreateAccount(12346,"Ravi Verma",60000);
+
+	c1.AccountDetails();
+	c2.AccountDetails();
+
+}
+
+

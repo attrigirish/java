@@ -1,0 +1,89 @@
+OOP Features
+
+1. Encapsulation : Binding data members and member functions together.
+
+	- Encapsulation can be implement by defining both the data members and members functions in the same class. 
+
+
+2. Data Abstraction : Hiding Unneccessary details from the user.
+
+	- Data abstraction can be aceived by making members of a class private.
+
+
+3. Polymorphism : One Interface Many Forms
+
+	- Function Overloading and Function Overriding
+
+4. Inheritance : Scaling existing applications. 
+
+	- Creating new classes on the basis of existing ones.
+
+
+
+
+Classes and Objects
+
+
+Syntax:
+
+class <class-name>
+{
+	private <data-member>;
+	private <member-function>(..) {..}
+
+	protected <data-member>;
+	protected <member-function>(..) {..}
+
+	public <data-member>;
+	public <member-function>(..) {..}
+}
+
+
+Access Specifiers
+
+1. private : Members can be accessed in the same class only.
+2. protected : Members can be accessed either in the same class or in derived classes.
+3. public : Members can be accessed anywhere in the program.
+
+
+Note: Default access specifier of a class member is private.
+
+
+e.g.
+
+class Product      //Product is a user defined data type
+{
+	public int id;
+	public String name;
+	public String brand;
+	public String category;
+	public double price;
+}
+
+
+//Creating objects.
+
+Product p = new Product();
+Product q = new Product();
+
+
+//Accessing Object Members
+
+p.id=1;
+p.name="Iphone XS";
+p.brand="Apple";
+p.category="Smart Phone";
+p.price=56000.0;
+
+q.id=2;
+q.name="Galaxy S10";
+q.brand="Samsung";
+q.category="Smart Phone";
+q.price=59000.0;
+
+System.out.println("ID : " + p.id);
+
+
+
+
+

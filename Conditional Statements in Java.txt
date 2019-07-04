@@ -191,6 +191,265 @@ da = (basic<1500) ? basic*.90 : basic*.98;
 
 
 
+Shorthand Conditions
+
+
+?: Conditional Operater (IIF)
+
+if(acno>=10000000 and acno<=99999999):
+	print("Valid")
+else:
+	print("Not Valid")
+
+
+
+
+Syntax:
+
+statement-X if(condition) else statement-Y
+
+or
+
+if(condition):
+	statement-X
+else:
+	statement-Y
+
+
+E.g.
+
+
+Write a program to check if a number is odd or even.
+
+
+num=int(input("Enter Number : "))
+
+if(num%2==0):
+	print("Even")
+else:
+	print("Odd")
+
+
+or
+
+
+num=int(input("Enter Number : "))
+print("Even" if(num%2==0) else "Odd")
+
+
+
+In a company an employee is paid as under: 
+
+If his basic salary is less than Rs. 1500, then HRA = 10% of basic salary and DA = 90% of basic salary.
+
+If his salary is either equal to or above Rs. 1500, then HRA = Rs. 500 and DA = 98% of basic salary. 
+
+If the employee's salary is input by the user write a program to find his gross salary.
+
+
+basic=float(input("Enter Basic Salary : "))
+hra=basic*.10 if(basic<1500) else 500
+da=basic*.90 if(basic<1500) else basic*.98
+net=basic+hra+da
+print(net)
+
+
+
+Looping Statements
+
+Looping statements are used to repeatedly execute a given set of statement(s). 
+
+
+1. for
+2. while
+
+
+Syntax:
+
+for iterator in list:
+	statement(s)
+
+
+
+for contact in ["Girish","Anil","Pankaj","Ravi"]:
+	print(contact, end=" ")
+
+
+Write a program to calculate sum of the the following elements:
+
+	[11,22,33,44,55]
+
+
+
+
+sum=0
+for num in [11,22,33,44,55]:
+	sum=sum+num
+
+print("Sum = ", sum)
+
+
+
+Write a program to count number of elements which are greater than 50.
+
+	[101,43,23,98,55]
+
+
+if(num>50):
+
+
+Write a program to print all even elements from the list.
+
+[34,76,13,77,90,23,47,65,38]
+
+
+
+Write a program to print all numbers between 1 and 100.
+
+
+range(start=0,stop,step=1) : Range function returns a list of iterables from start to stop-1 spaced by step value.	
+
+
+range(1,11)				[1,2,3,...10]
+range(10,0,-1)			[10,9,8,7,..,1]
+range(2,21,2)     		[2,4,6,...20]
+range(10)				[0,1,2,3,..,9]
+
+
+for value in range(1,101):
+	print(value)
+
+
+
+Write programs to print following outputs
+
+1. 			2 4 6 .. 20
+2. 			1 2 3 .. N
+3. 			N (N-1) (N-2) .. 1
+4. 			M (M+1) (M+2) .. N
+
+
+1.
+
+for value in range(2,21,2):
+	print(value)
+
+
+2. 
+
+n=int(input("Enter Stop Value : "))
+for value in range(1,n+1):
+	print(value)
+
+
+3. 
+
+for value in range(n,0,-1):
+	print(value)
+
+
+4. 
+
+for value in range(m,n+1):
+	print(value)
+
+
+
+
+Program: Write a program to count all factors of a number.
+
+Input: 24
+Output : 8
+
+
+if(n%value==0):
+	count=count+1
+
+
+
+Program: Write a program to check if n is a prime no. of not.
+
+(Hint: All numbers have only 2 factors)
+
+
+n=int(input("Enter a Number : "))
+count=0
+for value in range(2,n//2+1):
+	if(n%value==0):
+		count=count+1
+		break
+
+if(count==1):
+	print("Non Prime")
+else:
+	print("Prime")
+
+
+
+
+Write a program to calculate following expressions 
+(Factorial Problem)
+
+n*(n-1)*(n-2)*..*1
+
+
+
+1 2 3 4 5
+
+n (n-1) (n-2) .. 1
+
+
+
+fac=1
+for value in range(n,0,-1):
+	fac=fac*value
+
+print(fac)
+
+
+
+n=5
+
+5 4 3 2 1
+
+fac=fac*5
+fac=fac*4
+fac=fac*3
+fac=fac*2
+fac=fac*1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
