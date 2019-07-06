@@ -1,0 +1,333 @@
+Exception Handling
+
+
+Types of Errors
+
+1. Syntax Errors
+
+	E.g.
+
+	int a=5
+
+	if(a==5);
+	{
+
+	}
+
+
+2. Logical Errors
+
+	if(a<5)
+	{}
+
+	user.brandid
+
+
+3. Runtime Errors (Exception)
+
+	- Allocating more than available space
+	- Dividing a number by 0
+	- Opening a file for read operation which does not exist.
+	- Assigning a value in an array at an invalid index.
+
+
+
+Exception Handling in Java
+
+try
+{
+	//Statement(s) in an exception may occur	
+}
+catch(ExceptionType ex)
+{
+	//Statements(s) to execute if any error occurs
+}
+
+
+
+Write a program to input an array of 10 integers. If a users enters an invalid input the program must prompt the user to re-enter the value again. Also calculate the sum of all numbers.
+
+
+Try..Catch..Catch..
+
+ArrayIndexOutOfBoundsException
+NumberFormatException
+
+
+Try..catch..finally
+
+
+try
+{
+	statement-X
+}
+catch(...)
+{
+	statement-Y
+}
+
+statement-Z
+
+
+
+Case 1: If there is an exception in try block.
+		
+		X->Y->Z
+
+Case 2: If there is no exception in try block.
+
+		X->Z
+
+Case 3: If there is an exception in catch block.
+
+		X->Y
+
+
+
+
+try
+{
+	statement-X
+}
+catch(...)
+{
+	statement-Y
+}
+finally
+{
+	statement-Z
+}
+
+
+Case 1: If there is an exception in try block.
+		
+		X->Y->Z
+
+Case 2: If there is no exception in try block.
+
+		X->Z
+
+Case 3: If there is an exception in catch block.
+
+		X->Y->Z
+
+	
+
+
+Printing Exception Message
+--------------------------
+
+try
+{
+	...
+}
+catch(Exception e)
+{
+	S.o.p(e.getMessage());
+}
+
+
+
+Throwing Errors
+
+public static void Ex7() throws NumberFormatException
+{
+    throw new NumberFormatException();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------
+Program
+----------------------
+
+
+package exceptionhandlingdemo;
+
+import java.util.Scanner;
+
+public class ExceptionHandlingDemo {
+    public static void Ex1(){
+         Scanner input = new Scanner(System.in);
+        int a;
+        int b;
+        
+        
+        try
+        {
+            System.out.println("Enter First Number : ");
+            a=input.nextInt();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Invalid Input, Please Try Again : ");
+            input.nextLine();   //Buffer Clear
+            a=input.nextInt();
+        }
+
+
+        try
+        {
+            System.out.println("Enter Second Number : ");
+            b=input.nextInt();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Invalid Input, Please Try Again : ");
+            input.nextLine();   //Buffer Clear
+            b=input.nextInt();
+        }
+
+        int c=a+b;
+        System.out.println("Sum = " + c);
+
+    }
+
+    public static int getInt()
+    {
+        Scanner input = new Scanner(System.in);
+        int num;
+        while(true)
+        {
+            try
+            {
+                System.out.println("Enter Number : ");
+                num=input.nextInt();
+                break;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Invalid Input, Please Try Again : ");
+                input.nextLine();   //Buffer Clear
+            }
+        }
+        return num;
+    }
+        
+    public static void Ex2()
+    {
+        int a;
+        int b;
+
+        
+        a=getInt();
+        b=getInt();
+        
+        int c=a+b;
+        System.out.println("Sum = " + c);        
+    }
+    
+    public static void Ex3(){
+        Scanner input = new Scanner(System.in);
+        int []lst = new int[5];
+        for(int i=1;i<=5;i++){
+            while(true)
+            {
+                try
+                {
+                    System.out.println("Enter Number : ");
+                    lst[i]=input.nextInt();
+                    break;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Invalid Input, Please Try Again : ");
+                    input.nextLine();   //Buffer Clear
+                }
+            }
+        }
+    }
+    
+    public static void Ex4()
+    {
+        int []lst=new int[1];
+        
+        try
+        {
+            lst[1]=Integer.parseInt("F");
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Invalid Input Error");
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Invalid Index Error");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Some Error Occured");
+        }
+    }
+    
+    public static void Ex5()
+    {
+        try
+        {
+            System.out.println("X");
+            int a=Integer.parseInt("F");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Y");
+            int a=Integer.parseInt("G");
+        }
+        finally
+        {
+            System.out.println("Z");
+        }
+    }
+    
+    
+    public static void Ex6()
+    {
+        try
+        {
+            int a=Integer.parseInt("F");
+        }
+        catch(Exception e)
+        {
+            for(int i=0;i<e.getStackTrace().length;i++)
+            {
+                System.out.println("In -> " + e.getStackTrace()[i]);
+            }
+        }
+    }
+    
+
+    public static void Ex7() throws NumberFormatException
+    {
+        throw new NumberFormatException();
+    }
+
+    
+    public static void main(String[] args) 
+    {
+        //Ex1();
+        //Ex2();
+        //Ex3();
+        //Ex4();
+        //Ex5();
+        //Ex6();
+        try{
+            Ex7();
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Error Occured");
+        }
+    }    
+}

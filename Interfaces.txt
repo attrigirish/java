@@ -1,0 +1,122 @@
+Interfaces
+
+Declaration:
+
+interface <interface-name>
+{
+	...
+	...
+}
+
+
+e.g.
+
+interface NonAction
+{
+	void SetPosition(int x,int y);
+	int GetX();
+	int GetY();
+}
+
+
+interface Action
+{
+	void SetPosition(int x,int y);
+	void Run(int x,int y);
+	void Jump(int x,int y);
+	void Crawl(int x,int y);
+	int GetX();
+	int GetY();
+}
+
+class Character
+{
+	protected int x;
+	protected int y;
+}
+
+class Mustafa extends Character implements Action
+{
+	void SetPosition(int x,int y){}
+	void Run(int x,int y){}
+	void Jump(int x,int y){}
+	void Crawl(int x,int y){}
+	int GetX(){}
+	int GetY(){}
+}
+
+
+class Car extends Chracter implements NonAction
+{
+	void SetPosition(int x,int y) { }
+	int GetX() {}
+	int GetY() {}
+}
+
+
+
+
+------------------------
+Multiple Inheritance
+-----------------------
+
+
+class A
+{ ... }
+
+class B
+{ ... }
+
+class C extends A,B
+{
+	..
+}
+
+Note : In java two classes cannot be inherited in a class. (Error)
+
+
+Multiple Interface Inheritance
+-----------------------------
+
+interface A{ ... }
+interface B{ ... }
+
+class C implements A,B
+{
+	...
+}
+
+Note : In java two or more interfaces can be inherited in a class (Success)
+
+
+
+Inheriting Interface in Another Interface
+
+interface A 
+{
+	void Foo();
+}
+
+interface B extends A
+{
+	void Bar();
+}
+
+class C implements B
+{
+	void Foo() {...}
+	void Bar() {...}
+}
+
+
+Using Interfaces and Classes Together
+--------------------------------------
+
+class A { public void Foo(){} }
+interface B { void Bar(); }
+
+class C extends A implements B
+{
+	public void Bar() { .. }
+}
+

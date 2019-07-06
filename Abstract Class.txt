@@ -1,0 +1,116 @@
+Abstract Class
+
+
+--------------------------------
+Code Snippet 1 : Abstract Class
+--------------------------------
+
+
+
+abstract class Parent
+{
+	public void Fun()
+	{
+		S.o.p("Object Created");
+	}
+}
+
+void main()
+{
+	Parent obj = new Parent();
+	obj.Fun();
+}
+
+
+-------------------------------------
+Code Snippet 2 : Abstract Functions
+-------------------------------------
+
+
+abstract class Parent
+{
+	abstract void Fun();
+	abstract void Test();
+	void Foo(){System.out.println("Foo");}
+}
+
+class Child extends Parent
+{
+	
+}
+
+void main()
+{
+	Child obj = new Child();
+	obj.Fun();
+	obj.Test();
+	obj.Foo();
+}
+
+Note : When a derive class inherits an abstract, either it must define all the abstract functions of it or the class must be declared abstract itself.
+
+
+
+------------------------------------------
+Code Snippet 3 : Partial Abstract Classes
+------------------------------------------
+
+
+abstract class Parent
+{
+	abstract void Fun();
+	abstract void Test();
+	void Foo(){System.out.println("Foo");}
+}
+
+abstract class Child extends Parent
+{
+	void Fun()
+	{
+		S.o.println("Fun();")
+	}
+}
+
+void main()
+{
+	Child obj = new Child();
+	obj.Fun();
+	obj.Test();
+	obj.Foo();
+}
+
+Note: A derive class can partially implement the abstraction function/methods of the base class. In such case the derive class must be declared as an abstract class as well.
+
+
+
+------------------------------------------------------
+Code Snippet 4 : Extending an Abstract->Abstract class
+------------------------------------------------------
+
+
+abstract class Parent
+{
+	abstract void Fun();
+	abstract void Test();
+	void Foo(){System.out.println("Foo");}
+}
+
+abstract class Child extends Parent
+{
+	void Fun() { S.o.println("Fun"); }
+	void Child1() { S.o.println("Child 1"); }
+}
+
+class Last extends Child
+{
+	void Test() { S.o.println("Test"); }
+	void Child2() { S.o.println("Child 2"); }
+}
+
+void main()
+{
+	Child obj = new Last();
+}
+
+
+
