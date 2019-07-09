@@ -1,0 +1,46 @@
+Types of Exceptions
+
+- Checked Exception
+-------------------
+
+Java forces you to handle these error scenarios in some manner in your application code. They will come immediately into your face, once you start compiling your program. You can definitely ignore them and let them pass to JVM, but it’s bad habit. Ideally, you must handle these exceptions at suitable level inside your application so that you can inform the user about failure and ask him to retry/ come later.
+
+Generally, checked exceptions denote error scenarios which are outside the immediate control of the program. They occur usually interacting with outside resources/network resources e.g. database problems, network connection errors, missing files etc.
+
+Checked exceptions are subclasses of Exception class.
+
+Example of checked exceptions are : ClassNotFoundException, IOException, SQLException and so on.
+
+
+- Unchecked Exception 
+---------------------
+
+Java also provides UncheckedExceptions, the occurrences of which are not checked by the compiler. They will come into life/occur into your program, once any buggy code is executed.
+
+A method is not forced by compiler to declare the unchecked exceptions thrown by its implementation. Generally, such methods almost always do not declare them, as well.
+
+Unchecked Exceptions are subclasses of RuntimeException. Example of unchecked exceptions are : ArithmeticException, ArrayStoreException, ClassCastException and so on.
+
+
+
+Exception Class
+----------------
+
+The class Exception and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to catch.
+
+The class Exception and any subclasses that are not also subclasses of RuntimeException are checked exceptions. Checked exceptions need to be declared in a method or constructor's throws clause if they can be thrown by the execution of the method or constructor and propagate outside the method or constructor boundary.
+
+
+
+//Custom Checked
+class MyException extends Exception
+{
+	
+}
+
+//Custom UnChecked Exception
+class MyException extends RuntimeException
+{
+	
+}
+
