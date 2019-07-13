@@ -1,0 +1,7 @@
+Serialization
+
+
+Serialization is a process of converting non binary data into binary format.
+
+
+De-Serialization is a process of converting binary data into non-binary objects.

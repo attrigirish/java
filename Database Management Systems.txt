@@ -1,0 +1,212 @@
+Database Management Systems
+
+A database management system is a dedicated program/software which is used to store and process large volumes of data.
+
+Types of DBMS
+1. Relational Database Management System
+2. Hierarchical Database Management System
+3. Network Database Management System
+
+
+Relational Database Management System
+
+In a relational database management system the data is organized in rows and columns. The data in a RDBMS can be divided into multiple tables each table consisting of multiple related columns.
+
+Some Popular RDBMS
+
+1. MySQL
+2. Oracle
+3. Microsoft SQL Server
+
+
+MySQL
+
+Starting MySQL
+
+Step 1. Open XAMPP control panel.
+Step 2. Click on the start button in front MySQL.
+Step 3. Click shell to open command prompt.
+Step 4. type the following command to login into mysql.
+
+	mysql -u root -p 
+
+Step 5. Press enter when prompted for the password.
+
+
+SQL Commands
+
+1. DDL Commands
+2. DML Commands
+
+
+1. CREATE DATABASE
+
+Syntax:
+
+CREATE DATABASE <database>;
+
+e.g.
+
+CREATE DATABASE JAVAAPP;
+
+2. USE DATABASE
+
+Syntax:
+
+USE <database>;
+
+e.g.
+
+USE JAVAAPP;
+
+3. SHOW DATABASES
+
+e.g.
+
+SHOW DATABASES
+
+4. SHOW TABLES
+
+e.g.
+
+SHOW TABLES
+
+5. CREATE TABLE
+
+CREATE TABLE <tablename>
+(
+	col_name type [constraints],
+	col_name type [constraints],
+	[table_constraints]
+)
+
+Types
+
+1. int
+2. shortint
+3. longint
+4. float
+5. double
+6. decimal(m,n)
+
+1. char(m)
+2. varchar(m)
+
+1. bool
+2. bit
+
+1. date
+2. time
+3. datetime
+
+
+e.g.
+
+create table student
+(
+	id int PRIMARY KEY AUTO_INCREMENT,
+	name varchar(20) NOT NULL,
+	course varchar(20) NOT NULL,
+	fees decimal(10,2) NOT NULL,
+	desc varchar(5000) DEFAULT 'NA' 
+);
+
+6. INSERT 
+
+INSERT INTO <table-name>
+[(column1,column2,column3, ..)]
+values(value1,value2,value3,..valueN)
+
+
+INSERT INTO STUDENT
+(name,course,fees)
+values('Rahul','Java',16000);
+
+
+
+number
+char
+date
+
+insert into student values('1','Rahul','2019-07-11 11:00:22','11:00:44')
+
+
+7. SELECT
+
+SELECT [column1,column2,..,] 
+FROM <table-name>
+[WHERE <condtion>]
+[ORDER BY <column> ASC|DESC]
+[GROUP BY <column>
+[HAVING <condition>]]
+
+
+e.g.
+
+SELECT id,name,course,fees,desc FROM student;
+
+or
+
+SELECT * from student;
+
+
+8. DELETE 
+
+Syntax:
+
+DELETE FROM <table-name>
+[where <condition>]
+
+e.g.
+
+DELETE FROM STUDENT
+WHERE ID=1;
+
+9. UPDATE
+
+Syntax:
+
+UPDATE <table-name>
+SET <col>=<value>[,<col>=<value>]
+[WHERE <condition>]
+
+e.g.
+
+UPDATE STUDENT
+SET COURSE='PYTHON'
+WHERE ID=1
+
+UPDATE STUDENT
+SET FEES=FEES*1.05
+
+
+
+
+SQL Constraints:
+
+1. PRIMARY
+2. UNIQUE
+3. NOT NULL
+4. DEFAULT
+5. FOREIGN KEY
+
+
+Java Database Connectivity (JDBC)
+
+Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database. It is a Java-based data access technology used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. It provides methods to query and update data in a database, and is oriented towards relational databases. A JDBC-to-ODBC bridge enables connections to any ODBC-accessible data source in the Java virtual machine (JVM) host environment.
+
+JDBC Programming
+
+Step 1 : Load the Driver
+Step 2 : Create the Connection
+Step 3 : Prepare Query/Command
+Step 4 : Execute Query
+Step 5 : Close the Connection
+
+
+Drivers List for Different DBMSs
+
+Mysql : 		com.mysql.jdbc.Driver
+Postgre SQL : 	org.postgresql.Driver
+MS SQL : 		com.microsoft.sqlserver.jdbc.SQLServerDrive
+Oracle : 		oracle.jdbc.driver.OracleDriver

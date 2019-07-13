@@ -1,0 +1,138 @@
+package dbprogramming;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class DBProgramming 
+{
+    public static void Insert()
+    {
+        Scanner input = new Scanner(System.in);
+        
+        try
+        {
+            //Step 1 : Loading the JDBC Drivers
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            //Step 2 : Creating a connection
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaapp","root","");
+                  
+            System.out.print("Name : ");
+            String name=input.nextLine();
+            System.out.print("Course : ");
+            String course=input.nextLine();
+            System.out.print("Fees : ");
+            double fees=input.nextDouble();
+            input.nextLine();
+            System.out.print("Bio : ");
+            String bio=input.nextLine();
+            
+            //Step 3 : Prepared Statements
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO STUDENT (name,course,fees,bio) values (?,?,?,?)");      
+            stmt.setString(1,name);
+            stmt.setString(2,course);
+            stmt.setDouble(3,fees);
+            stmt.setString(4,bio);
+            
+            //Step 4 : Execute Query
+            stmt.execute();
+            
+            //Step 5 : Close the Connection
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error Occured : " + e.getMessage());
+        }
+    }
+    
+    public static void Display()
+    {
+        Scanner input = new Scanner(System.in);        
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaapp","root","");
+            PreparedStatement stmt = con.prepareStatement("select * from student");
+            ResultSet result=stmt.executeQuery();
+            
+            while(result.next())
+            {
+                System.out.println("ID : " + result.getInt("id"));
+                System.out.println("Name : " + result.getString("name"));
+                System.out.println("Course : " + result.getString("course"));
+                System.out.println("Fees : " + result.getDouble("fees"));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error : " + e.getMessage());
+        }
+                  
+
+    }
+    
+    
+    public static void Search()
+    {
+        Scanner input = new Scanner(System.in);        
+        try
+        {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaapp","root","");
+            
+            System.out.println("Enter Id : ");
+            int id=input.nextInt();
+            PreparedStatement stmt = con.prepareStatement("select * from student where id=?");
+            stmt.setInt(1, id);
+            ResultSet result=stmt.executeQuery();
+            
+            while(result.next())
+            {
+                System.out.println("ID : " + result.getInt("id"));
+                System.out.println("Name : " + result.getString("name"));
+                System.out.println("Course : " + result.getString("course"));
+                System.out.println("Fees : " + result.getDouble("fees"));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error : " + e.getMessage());
+        }
+                  
+
+    }
+    
+    public static void Delete()
+    {
+        Scanner input = new Scanner(System.in);        
+        try
+        {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaapp","root","");
+            
+            System.out.println("Enter Id : ");
+            int id=input.nextInt();
+            PreparedStatement stmt = con.prepareStatement("delete from student where id=?");
+            stmt.setInt(1, id);
+            stmt.execute();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error : " + e.getMessage());
+        }                  
+    }
+    
+    public static void main(String[] args) 
+    {
+        //Display();
+        //Search();
+        Delete();
+    }    
+}
