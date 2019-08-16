@@ -1,0 +1,284 @@
+Java Data Types
+
+- Primitive data types
+	
+	int, char, float
+
+	- Stored in stack memory space
+
+- Reference data types
+
+	String, Array, Object
+
+	- Reference is stored in stack memory space.
+	- Data is stored and heap memory space.
+
+
+
+Java Primitive Types
+
+1. byte 			1 Byte
+2. short 			2 Bytes
+3. long 			8 Bytes
+4. int 				4 Bytes
+5. float  			4 Bytes
+6. double 			8 Bytes
+7. boolean 			true/false
+8. char 			2 Bytes
+
+
+Negative : -2^(bits-1)         -128
+Positive : 2^(bits-1)-1 		127
+
+Rules
+
+float f=432.544F;
+or
+float f=432.544f;
+
+long l=23L;
+or
+long l=23l;
+
+
+
+Reference Data Types
+
+1. Array
+2. String
+3. Class
+4. Interface
+
+
+Variables
+---------
+
+A variable is a data store which is used to store program data in the memory.
+
+
+Value Type Variable
+
+<type> <var-name>;
+or
+<type> <var-name>=<value>;
+
+e.g.
+
+int a;
+or
+int a=5;
+
+Reference Type Variable
+
+<type> <var-name>=new <type>;
+
+e.g.
+
+int[] arr=new int[5];
+Student s=new Studen();
+String s=new String();
+
+Rules:
+
+1. A variable name must start with an alphabet or _ (underscore) character.
+2. A variable can consists of alphabets, numbers or _ (underscore) only.
+
+
+
+
+Java Operators
+
+Arithmetic:
+-----------
+
+A. +
+B. -
+C. /
+D. *
+E. %
+
+
+Relational:
+
+A. >
+B. <
+C. >=
+D. <=
+E. ==
+F. !=
+
+Logical:
+
+A. &&
+B. ||
+C. !
+
+Assignment:
+
+A. =
+B. +=
+C. -=
+D. /=
+E. *=
+F. %=
+
+Increment/Decrement:
+
+A. ++
+B. --
+
+Conditional:
+
+A. ?:
+
+Bitwise:
+
+A. &
+B. |
+C. ~
+D. >>
+E. <<
+
+Special Operators
+
+A. ,
+B. + (Concatenation)
+
+
+
+E.g.
+
+5+4			=	9
+"5"+"4"		= 	54
+"5"+4 		=	54
+"5"+true	= 	5true
+"5"+3.23	=	53.23
+
+
+Type Casting 
+
+Implicit Type Casting
+
+5/2 =	2.5 -> int	=	2
+5.0/2 = 5.0/2.0 (TC) = 2.5
+
+
+Explicity Type Casting
+
+(float)5/2 = 2.5
+
+
+
+E.g
+
+int a = 5.0/2.0;
+
+
+Java Output Statement
+
+1. println()
+2. print()
+3. printf
+
+
+
+System Class 
+
+Package: java.lang
+
+class System{
+	public static PrintStream out;
+}
+
+Syntax:
+
+System.out.println("Hello");
+System.out.print("Hello")
+System.out.printf("%s","Hello")
+
+
+Write a java statement to print the following output
+5 + 10 = 15
+
+System.out.println(a+" + "+b+" = "+c);
+System.out.printf("%d + %d = %d", a,b,c)
+
+
+Java Input
+
+Scanner class
+
+Package java.io
+
+
+class Scanner{
+	Scanner(Stream stream){
+	}
+
+	int nextInt(){
+	}
+
+	float nextFloat(){
+	}
+
+	String nextLine(){	
+	}
+}
+
+
+E.g.
+
+import java.io.Scanner;
+
+Scanner inp = new Scanner(System.in);
+
+int a = inp.nextInt();
+float b = inp.nextFloat();
+String name = inp.nextLine();
+
+
+
+Write a java program to calculate sum of two numbers.
+
+
+import java.util.Scanner;
+
+class SumDemo{
+	public static void main(String[] args){
+		Scanner inp = new Scanner(System.in);
+		System.out.print("Enter First Number : ");
+		int a = inp.nextInt();
+		System.out.print("Enter Second Number : ");
+		int b = inp.nextInt();
+		System.out.printf("%d + %d = %d", a,b,(a+b));
+	}
+}
+
+
+Conditional Statements
+
+1. if.else
+2. switch.case
+3. ?.:
+
+
+Syntax:
+
+if(condition){
+	..
+}
+else{
+	
+}
+
+
+Write a program to calculate the total expenses. Quantity and price per item are input by the user and discount of 10% is offered if the expense is more than 5000
+
+
+
+
+
+
+
+
+
